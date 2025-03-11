@@ -1,0 +1,21 @@
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        
+        if len(s) != len(t):
+            return False
+
+        countS, countT = {}, {} # initalize hashmaps which store the frequency of each character in s and t
+
+
+        for i in range(len(s)): #only have to iterate through len(s) bc theyre both the same length 
+            countS[s[i]] = 1 + countS.get(s[i], 0) # get function - if key doesn't already exist in hashmap, then it's value  
+                                                   # is 0, hence why we add 1 to it 
+            countT[t[i]] = 1 + countT.get(t[i], 0)
+        return countS == countT
+
+
+        #time complexity - O(n+m) where n is the length of string s and m is the length of string t
+        #space complexity - O(1) since we have at most 26 diff characters 
+
+        # can also just use a one line solution (kinda cheating)
+        # return Counter(s) == Counter(t)
