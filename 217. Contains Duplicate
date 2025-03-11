@@ -1,0 +1,14 @@
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        seen = set()  # Create an empty set to store seen numbers
+        for num in nums:  # Loop through each number in the list
+            if num in seen:  # If the number is already in the set, return True (duplicate found)
+                return True
+            seen.add(num)  # Otherwise, add the number to the set
+        return False  # If no duplicates are found, return False
+
+
+# for num in nums - in python for loops, the variable (num) is just a placeholder that takes on the value of each element in the list one by one.
+
+# time complexity - O(n) --> only iterate through nums list once 
+# space complexity - O(n)
