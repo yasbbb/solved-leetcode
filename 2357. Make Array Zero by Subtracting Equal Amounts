@@ -1,0 +1,8 @@
+class Solution:
+    def minimumOperations(self, nums: List[int]) -> int:
+        
+        return len(set(nums) - {0})
+
+        # basically you create a set to track all unique non-zero elements in nums
+        # if present, remove 0 from the set
+        # the size of the remaning set equals the # of operations needed since each unique value corresponds to a subtraction step - 200iq
