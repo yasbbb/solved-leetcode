@@ -1,0 +1,12 @@
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        prevMap = {}  # val -> index
+
+        for i, n in enumerate(nums): # enumerate function allows you to iterate over a sequence while keeping track of both the index (i) and the element (n) at the same time
+            diff = target - n
+            if diff in prevMap: # If the complement (diff) is found, return indices
+                return [prevMap[diff], i] 
+            prevMap[n] = i # Otherwise, store current number with its index
+
+# time complexity - O(n)
+# space complexity - O(n)
