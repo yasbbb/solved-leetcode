@@ -1,0 +1,30 @@
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        count = {}
+        freq = [[] for i in range(len(nums) + 1)] 
+
+        for n in nums: 
+            count[n] = 1 + count.get(n, 0) # add count of each num to hashmap 
+        for n, c in count.items():
+            freq[c].append(n)
+
+        res = []
+        for i in range(len(freq) - 1, 0, -1): #traverse freq list in descending order to get more frequent elements first 
+            for n in freq[i]:
+                res.append(n)
+                if len(res) == k:
+                    return res
+
+
+        
+#  bucket sort algo
+#  1. initialize hash map
+#  2. make empty array thats the same size as input array which is used to count frequency - the index is equivalent to the frequency of the elements 
+#  3. add count of each num in nums to hash map
+#  4. go through each item we counted - at index count, append n to the freq list 
+#  5. in descending order, go through freq list and append top k freq elements to result 
+
+
+# time complexity - O(n)
+# space complexity - O(n)
+            
