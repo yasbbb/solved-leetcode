@@ -1,0 +1,13 @@
+class Solution:
+    def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
+        res = defaultdict(list)
+        for s in strs: # for every string in the input 
+            count = [0] * 26 # counts how many of each character each string has - starts off with 26  zeroes, one for each character - a ... z
+            for c in s: # for every character in each string 
+                count[ord(c) - ord('a')] += 1 # count how many of each character 
+            res[tuple(count)].append(s) # group all anagrams with this particular count together (changes count to tuple because lists cannot be keys)
+        return list(res.values())
+
+
+# time complexity - O(m * n)
+# space complexity - O(m)
