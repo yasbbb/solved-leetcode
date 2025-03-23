@@ -1,0 +1,15 @@
+class Solution:
+    def isPalindrome(self, s: str) -> bool:
+        
+        newStr = ''
+
+        for x in s:
+            if x.isalnum():
+                newStr += x.lower()
+        return newStr == newStr[::-1]
+
+#initialize empty string
+#for every letter in s, check if it's alphanumeric - if so, append lower case letter to newStr
+#return true if newStr == newStr reversed
+
+#time / space complexity - O(n)
