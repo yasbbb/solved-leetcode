@@ -1,0 +1,20 @@
+class Solution:
+    def twoSum(self, numbers: List[int], target: int) -> List[int]:
+        l = 0 #left pointer starts the beginning
+        r = len(numbers) - 1 # right pointer starts at the end 
+
+        while l < r:
+            curSum = numbers[l] + numbers[r]
+
+            if curSum > target:
+                r -= 1
+            elif curSum < target:
+                l += 1
+            else:
+                return [l+1, r+1] #because it's a 1-indexed array, have to add 1 to each l,r index
+        return []
+
+# time complexity: O(n)
+# space complexity: O(1) --> we're just reading values from the exising array, not copying or storing anything new 
+
+#beats 100%
